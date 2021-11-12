@@ -3,8 +3,8 @@ import {useDispatch,useSelector} from "react-redux";
 import SignInLoader from "../components/Loaders/signInLoader";
 import '../assets/css/registration.css'
 import logo from '../assets/img/logo.png'
-import { faKey, faEnvelope, } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faKey, faEnvelope, } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import YellowButton from "../components/Buttons/YellowButton";
 
 import {
@@ -52,7 +52,7 @@ const Login = ({history}) => {
                                         onChange={e=>{setEmail(e.target.value)}}
                                     >
                                     </Form.Control>
-                                    <FontAwesomeIcon className="login-field-icon" icon={faEnvelope} />
+                                    {/*<FontAwesomeIcon className="login-field-icon" icon={faEnvelope} />*/}
 
                                 </Form.Group>
 
@@ -66,7 +66,7 @@ const Login = ({history}) => {
                                         onChange={e=>setPassword(e.target.value)}
                                     >
                                     </Form.Control>
-                                    <FontAwesomeIcon className="login-field-icon" icon={faKey} />
+                                    {/*<FontAwesomeIcon className="login-field-icon" icon={faKey} />*/}
                                 </Form.Group>
                             </Col>
 

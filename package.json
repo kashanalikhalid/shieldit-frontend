@@ -4,6 +4,7 @@
   "proxy": "http://127.0.0.1:5000",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@react-google-maps/api": "^2.2.0",
     "axios": "^0.21.1",
     "bootstrap": "4.6.0",
