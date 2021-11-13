@@ -21,8 +21,132 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 
 function Dashboard({history}) {
-
+  let CanvasJS = CanvasJSReact.CanvasJS;
+  let CanvasJSChart = CanvasJSReact.CanvasJSChart;
   const dispatch= useDispatch()
+
+
+  const emailOptions = {
+    theme: "light2",
+    animationEnabled: true,
+    title:{
+      text: "Emails sent vs received from outside company"
+    },
+    axisX: {
+      title: "States"
+    },
+    axisY: {
+      title: "Emails Sent",
+      titleFontColor: "#6D78AD",
+      lineColor: "#6D78AD",
+      labelFontColor: "#6D78AD",
+      tickColor: "#6D78AD"
+    },
+    axisY2: {
+      title: "Emails received",
+      titleFontColor: "#51CDA0",
+      lineColor: "#51CDA0",
+      labelFontColor: "#51CDA0",
+      tickColor: "#51CDA0"
+    },
+    toolTip: {
+      shared: true
+    },
+    legend: {
+      cursor: "pointer",
+    },
+    data: [{
+      type: "spline",
+      name: "Emails from outside",
+      showInLegend: true,
+      xValueFormatString: "MMM",
+      yValueFormatString: "#,##0 Emails",
+      dataPoints: [
+        { x: new Date(2017, 0), y: 120 },
+        { x: new Date(2017, 1), y: 135 },
+        { x: new Date(2017, 2 ), y: 144 },
+        { x: new Date(2017, 3 ), y: 103 },
+        { x: new Date(2017, 4 ), y: 93 },
+        { x: new Date(2017, 5 ), y: 129 },
+        { x: new Date(2017, 6 ), y: 143 },
+        { x: new Date(2017, 7 ), y: 156 },
+        { x: new Date(2017, 8 ), y: 122 },
+        { x: new Date(2017, 9 ), y: 106 },
+        { x: new Date(2017, 10 ), y: 137 },
+        { x: new Date(2017, 11), y: 142 }
+      ]
+    },
+      {
+        type: "spline",
+        name: "Emails from inside",
+        axisYType: "primary",
+        showInLegend: true,
+        xValueFormatString: "MMM",
+        yValueFormatString: "#,##0 Emails",
+        dataPoints: [
+          { x: new Date(2017, 0), y: 190 },
+          { x: new Date(2017, 1  ), y: 200 },
+          { x: new Date(2017, 2 ), y: 273 },
+          { x: new Date(2017, 3 ), y: 200 },
+          { x: new Date(2017, 4 ), y: 202 },
+          { x: new Date(2017, 5 ), y: 290 },
+          { x: new Date(2017, 6 ), y: 304 },
+          { x: new Date(2017, 7 ), y: 325 },
+          { x: new Date(2017, 8 ), y: 202 },
+          { x: new Date(2017, 9 ), y: 272 },
+          { x: new Date(2017, 10 ), y: 335 },
+          { x: new Date(2017, 11), y: 325 }
+        ]
+      }]
+  }
+
+
+  const departmentOptions = {
+    animationEnabled: true,
+    theme: "ligh1",
+    title: {
+      text: "Threats Statistics Month Wise"
+    },
+    axisY: {
+      title: "Threats per department",
+      scaleBreaks: {
+        autoCalculate: true,
+        type: "wavy",
+        lineColor: "white"
+      }
+    },
+    data: [{
+      type: "column",
+      indexLabel: "{y}",
+      indexLabelFontColor: "white",
+      dataPoints: [
+        {"label":"Marketing","y":5},
+        {"label":"Accounts","y":4},
+        {"label":"Pharma","y":2},
+        {"label":"IT","y":3},
+        {"label":"Design","y":2},
+        {"label":"Support","y":2}
+      ]
+    }]
+  }
+
+  const pieOptions = {
+    animationEnabled: true,
+    exportEnabled: true,
+    theme: "light1", // "light1", "dark1", "dark2"
+    title:{
+      text: "Company Health"
+    },
+    data: [{
+      type: "pie",
+      indexLabel: "{label}: {y}%",
+      startAngle: -90,
+      dataPoints: [
+        { y: 30, label: "Suspicious Employees" },
+        { y: 70, label: "Normal Employees" },
+      ]
+    }]
+  }
 
 
   useEffect(()=>{
@@ -31,73 +155,8 @@ function Dashboard({history}) {
   const showDashboad=()=>{
 
 
-    const graph = {
-      nodes: [
-        { id: 0, label: "Kashan \n Marketing",color:"red"  },
-        { id: 1, label: "Muddasir \n Marketing", color:"red" },
-        { id: 2, label: "Kashan \n Marketing", color:"red" },
-        { id: 3, label: "Kashan \n Marketing", color:"red"},
-        { id: 4, label: "Kashan \n Marketing", color:"red" },
-        { id: 5, label: "Kashan \n Marketing", color:"red" },
-        { id: 6, label: "6", color:"green" },
-        { id: 7, label: "7", color:"green" },
-        { id: 8, label: "8", group: 2, color:"green" },
-        { id: 9, label: "9", group: 3, color:"green" },
-        { id: 10, label: "10", group: 3, color:"green" },
-        { id: 11, label: "11", group: 3, color:"green" },
-        { id: 12, label: "12", group: 3, color:"green" },
-        { id: 13, label: "13", group: 3, color:"green" },
-        { id: 14, label: "14", group: 3, color:"green" },
-        { id: 15, label: "15", group: 2, color:"green" },
-        { id: 16, label: "16", group: 3, color:"green" },
-        { id: 17, label: "17", group: 3, color:"green" },
-        { id: 18, label: "18", group: 3, color:"green" },
-        { id: 19, label: "19", group: 3, color:"green" },
-        { id: 20, label: "20", group: 3, color:"green" },
-        { id: 21, label: "21", group: 3, color:"green" },
-        { id: 22, label: "22", group: 3, color:"green" },
-        { id: 23, label: "23", group: 3, color:"green" },
-        { id: 24, label: "24", group: 3, color:"green" },
-        { id: 25, label: "25", group: 3, color:"green" },
-        { id: 26, label: "26", group: 3, color:"green" },
-        { id: 27, label: "27", group: 3, color:"green" },
-        { id: 28, label: "28", group: 3, color:"green" },
-        { id: 29, label: "29", group: 3, color:"green" },
-      ],
-      edges: [
-        { from: 1, to: 0 },
-        { from: 2, to: 0 },
-        { from: 4, to: 3 },
-        { from: 5, to: 4 },
-        { from: 4, to: 0 },
-        { from: 7, to: 6 },
-        { from: 8, to: 7 },
-        { from: 7, to: 0 },
-        { from: 10, to: 9 },
-        { from: 11, to: 10 },
-        { from: 10, to: 4 },
-        { from: 13, to: 12 },
-        { from: 14, to: 13 },
-        { from: 13, to: 0 },
-        { from: 16, to: 15 },
-        { from: 17, to: 15 },
-        { from: 15, to: 10 },
-        { from: 19, to: 18 },
-        { from: 20, to: 19 },
-        { from: 19, to: 4 },
-        { from: 22, to: 21 },
-        { from: 23, to: 22 },
-        { from: 22, to: 13 },
-        { from: 25, to: 24 },
-        { from: 26, to: 25 },
-        { from: 25, to: 7 },
-        { from: 28, to: 27 },
-        { from: 29, to: 28 },
-        { from: 28, to: 0 },
-      ]
-    };
 
-    var options = {
+    let options = {
       nodes: {
         shape: "dot",
         size: 30,
@@ -183,35 +242,22 @@ function Dashboard({history}) {
         </Row>
           <Row className="graphs-container">
               <Col xs={6}>
-                <div style={{height:"800px", width: '800px'}}>
-
-                  <Graph
-                      graph={graph}
-                      options={options}
-                      events={events}
-                      getNetwork={network => {
-                        //  if you want access to vis.js network api you can set the state in a parent component using this property
-                      }}
-                  />
-                </div>
-
+                <CanvasJSChart options = {pieOptions}/>
               </Col>
               <Col xs={6}>
-                <div style={{height:"800px", width: '800px'}}>
-
-                  <Graph
-                      graph={graph}
-                      options={options}
-                      events={events}
-                      getNetwork={network => {
-                        //  if you want access to vis.js network api you can set the state in a parent component using this property
-                      }}
-                  />
-                </div>
+                <CanvasJSChart options = {departmentOptions}
+                    /* onRef={ref => this.chart = ref} */
+                />
 
               </Col>
-          </Row>
 
+            <Col xs={12}>
+              <CanvasJSChart options = {emailOptions}
+                  /* onRef={ref => this.chart = ref} */
+              />
+
+            </Col>
+          </Row>
 
 
       </Container>)
