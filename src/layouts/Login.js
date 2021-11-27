@@ -4,7 +4,6 @@ import '../assets/css/login-stars.css'
 import logo from '../assets/img/logo.svg'
 import checkSymbol from '../assets/img/check.png'
 import { SocialIcon } from 'react-social-icons';
-import Switch from "react-switch";
 import YellowButton from "../components/Buttons/YellowButton";
 import {useDispatch,useSelector} from "react-redux";
 import SignInLoader from "../components/Loaders/signInLoader";
@@ -133,19 +132,7 @@ const Login = ({history}) => {
                                     </Form.Group>
                                     <h5 className="login-forgot ml-5 mt-5">Forgot password?</h5>
                                     <YellowButton  type="submit" className="mt-2 float-left" width={200} content="Login"/>
-                                    <Row className="d-flex flex-column align-items-center justify-content-center d-md-none">
-                                        <Switch
-                                            className="mt-2 ml-5"
-                                            offColor='#fdda00'
-                                            onColor='#000000'
-                                            onChange={handleSwitchChange}
-                                            checked={checked}
-                                            checkedIcon={null}
-                                            uncheckedIcon={null}
-                                        />
-                                        <p className="ml-5 login-mobile-user">{checked===false? 'Admin' : 'Super Admin'}</p>
 
-                                    </Row>
 
                                 </Col>
 
