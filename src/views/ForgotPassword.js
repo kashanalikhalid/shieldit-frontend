@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import {useDispatch,useSelector} from "react-redux";
 import SignInLoader from "../components/Loaders/signInLoader";
-import '../assets/css/registration.css'
 import logo from '../assets/img/logo.png'
 // import { faKey, faEnvelope,faUser } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

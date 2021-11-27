@@ -90,9 +90,7 @@ function Sidebar({ color, image, routes }) {
                 }
             >
                 <NavLink onClick={()=>{setRadio('Default')}}   className="nav-link" to={'/admin/default'}>
-                    <span onClick={()=>{setRadio("Default")}} style={{backgroundColor: `${radio==='Default' ?'#baa000':'transparent'}`}} className="dot"></span>
-
-                    <span className="radio-label">  <p>Default </p> </span>
+                    <span> <i className='nc-icon nc-circle' /> <p>Default </p> </span>
                 </NavLink>
             </li>
 
@@ -102,8 +100,7 @@ function Sidebar({ color, image, routes }) {
                 }
             >
                 <NavLink   className="nav-link" to={'/admin/threats'} onClick={()=>{setRadio('Threats')}}>
-                    <span onClick={()=>{setRadio("Threats")}} style={{backgroundColor: `${radio==='Threats' ?'#baa000':'transparent'}`}} className="dot"></span>
-                    <span>  <p>Threats </p> </span>
+                    <span> <i className='nc-icon nc-light-3' /> <p>Threats </p> </span>
                 </NavLink>
             </li>
 
@@ -113,8 +110,7 @@ function Sidebar({ color, image, routes }) {
                 }
             >
                 <NavLink onClick={()=>{setRadio('Outsider')}}   className="nav-link" to={'/admin/outsider'}>
-                    <span onClick={()=>{setRadio("Outsider")}} style={{backgroundColor: `${radio==='outsider' ?'#baa000':'transparent'}`}} className="dot"></span>
-                    <span>  <p>Outsider </p> </span>
+                    <span> <i className='nc-icon nc-cctv' /> <p>Outsiders </p> </span>
                 </NavLink>
             </li>
 
@@ -125,8 +121,7 @@ function Sidebar({ color, image, routes }) {
                 }
             >
                 <NavLink onClick={()=>{setRadio('Competitors')}}  className="nav-link" to={'/admin/Competitors'}>
-                   <span onClick={()=>{setRadio("Competitors")}} style={{backgroundColor: `${radio==='Competitors' ?'#baa000':'transparent'}`}} className="dot"></span>
-                    <span>  <p>Competitors </p> </span>
+                    <span> <i className='nc-icon nc-circle-09' /> <p>Competitors </p> </span>
                 </NavLink>
             </li>
 

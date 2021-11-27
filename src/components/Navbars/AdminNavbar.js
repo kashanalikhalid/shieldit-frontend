@@ -42,8 +42,8 @@ function Header() {
   };
 
   const logoutHandler=()=>{
-    dispatch(userLogout())
-    history.push('/login')
+    // dispatch(userLogout())
+    history.push('/')
   }
   const getBrandText = () => {
     for (let i = 0; i < routes.length; i++) {

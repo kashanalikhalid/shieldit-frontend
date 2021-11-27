@@ -4,35 +4,25 @@ html,body{
 }
 
 .login{
-    background: rgb(34,34,34);
-    background: linear-gradient(176deg, rgba(34,34,34,1) 0%, rgba(107,107,107,1) 84%);
+    background-color:#f5f5f5 !important;
+    /*background-image:url("../img/login-bg.jpg") !important;*/
     width:100vw;
     background-size:cover;
     height:100vh;
+    /*background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);*/
 
 
 }
 
 .login-container{
     border-radius:10px;
-    overflow:hidden;
+    overflow:visible;
+    /*background-color:white;*/
     height:80vh;
     position: absolute;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-
-}
-
-.signup-container{
-    border-radius:10px;
-    overflow:hidden;
-    height:100vh;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -44,8 +34,22 @@ html,body{
     }
 }
 
+.login-left
+{
+    height:79vh;
+    background:white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius:10px;
+}
 
+.login-left h2{
+    font-family: 'Nunito', serif;
+    font-weight: 700;
 
+}
 
 
 .login-avatar-container
@@ -59,19 +63,28 @@ html,body{
 
 }
 
+.login-avatar-container h5
+{
+    margin-top:10px;
+    font-weight:bold;
+    font-family:'Nunito'
 
+}
 
+.checkSymbol{
+    position:absolute;
+    top:150px;
+    margin-left:-20px;
+}
 
 .login-account{
     font-weight:bold;
     font-family:'Nunito'
 }
 
-.login-welcome{
-    color:white;
+.login-hellotext{
+    color:grey;
     font-family:"Nunito";
-    font-weight: bold;
-    font-size:25px;
 
 }
 
@@ -97,7 +110,20 @@ html,body{
 .hidden {
     opacity:0;
 }
+.console-container {
 
+    font-size:2rem;
+    text-align:left;
+    display:block;
+    color:black;
+    margin-top:20px;
+}
+.console-underscore {
+    display:inline-block;
+    position:relative;
+    top:-0.14em;
+    left:10px;
+}
 
 .yellow-form-label {
     float:left;
@@ -114,18 +140,17 @@ html,body{
 
 .yellow-form-group{
     position:relative;
+    width:100% !important;
 }
 
 .yellow-form-field{
     font-family: 'Nunito', serif;
     height:50px !important;
-    padding-top:12px !important;
-    padding-left: 35px !important;
-    width:400px !important;
+    padding-top:10px !important;
+    padding-left: 30px !important;
+    width:100%;
+
 }
-
-
-
 
 .yellow-form-field:focus{
     border:2px solid black !important;
@@ -134,8 +159,8 @@ html,body{
 
 .login-field-icon{
     position:absolute;
-    top:20px;
-    left:15px;
+    top:22px;
+    left:8px;
     color:gray;
     font-size:15px;
 }
@@ -143,10 +168,11 @@ html,body{
 .login-form-checkbox
 {
     border-radius:50px !important;
-    border:2px solid black;
-    height:20px;
-    width:20px;
+    border:2px solid gray;
+    height:15px;
+    width:15px;
     cursor:pointer;
+
 }
 
 .login-form-checkbox--img{
@@ -160,32 +186,26 @@ position:absolute;
     position:absolute;
     left:20px;
     font-family: 'Nunito', serif;
-    font-weight:bold;
+    font-size:14px;
+    color:gray !important;
+    margin-top:-2px ;
+
 }
 
 .login-forgot{
+position:absolute;
+    right:0;
+    top:125px;
     cursor: pointer;
     font-family:'Nunito';
-    font-weight:bold;
-    color:#baa000;
-    font-size:20px !important;
-    margin-top:-5px;
-    margin-left:220px;
-}
-
-@media only screen and (max-width: 600px) {
-    .login-forgot {
-        font-size:12px !important;
-    }
-    .yellow-form-field{
-        width:100vw !important;
-    }
+    font-size:14px;
+    color:gray !important;
 }
 
 .login-social
 {
-    width:30px !important;
-    height:30px !important;
+    width:27px !important;
+    height:27px !important;
 }
 
 .login-phone{
@@ -205,8 +225,8 @@ position:absolute;
     height:20px;
     text-align:center;
     transition: opacity 2s ease-in;
-    width:430px;
-    margin-left: 50px;
+    width:80%;
+    margin-left: 10%;
 }
 
 .login-error span{
@@ -225,13 +245,10 @@ position:absolute;
 
 }
 
-.login-signup
+.login-logo
 {
-    color:white;
-}
+    text-align: center !important;
+    margin-left: 27% !important;
+    width:290px;
 
-.login-signup span
-{
-    color:#baa000;
-    cursor: pointer;
 }

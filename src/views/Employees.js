@@ -56,7 +56,7 @@ const Employees=({history, location})=>{
                                         <Tooltip id="tooltip-829164576">Remove</Tooltip>
                                     }
                                 >
-                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
+                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="secondary"><i className=" far fa-trash-alt fa-2x "> </i></Button>
                                 </OverlayTrigger>
 
                             </Col>
@@ -106,7 +106,7 @@ const Employees=({history, location})=>{
                                         <Tooltip id="tooltip-829164576">Remove</Tooltip>
                                     }
                                 >
-                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
+                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="secondary"><i className=" far fa-trash-alt fa-2x "> </i></Button>
                                 </OverlayTrigger>
 
                             </Col>
@@ -155,7 +155,7 @@ const Employees=({history, location})=>{
                                         <Tooltip id="tooltip-829164576">Remove</Tooltip>
                                     }
                                 >
-                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
+                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="secondary"><i className=" far fa-trash-alt fa-2x "> </i></Button>
                                 </OverlayTrigger>
 
                             </Col>
@@ -204,7 +204,7 @@ const Employees=({history, location})=>{
                                         <Tooltip id="tooltip-829164576">Remove</Tooltip>
                                     }
                                 >
-                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
+                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="secondary"><i className=" far fa-trash-alt fa-2x "> </i></Button>
                                 </OverlayTrigger>
 
                             </Col>
@@ -253,7 +253,7 @@ const Employees=({history, location})=>{
                                         <Tooltip id="tooltip-829164576">Remove</Tooltip>
                                     }
                                 >
-                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
+                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="secondary"><i className="  far fa-trash-alt fa-2x "> </i></Button>
                                 </OverlayTrigger>
 
                             </Col>
@@ -302,7 +302,7 @@ const Employees=({history, location})=>{
                                         <Tooltip id="tooltip-829164576">Remove</Tooltip>
                                     }
                                 >
-                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
+                                    <Button   size='sm' className='btn-fill btn-padding btn-margin' variant="secondary"><i className=" far fa-trash-alt fa-2x "> </i></Button>
                                 </OverlayTrigger>
 
                             </Col>

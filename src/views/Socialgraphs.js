@@ -178,36 +178,62 @@ function Socialgraphs({history}) {
                     </Card>
                 </Col>
             </Row>
-            <Row className="graphs-container">
-                <Col xs={6}>
-                    <div style={{height:"800px", width: '800px'}}>
 
-                        <Graph
-                            graph={graph}
-                            options={options}
-                            events={events}
-                            getNetwork={network => {
-                                //  if you want access to vis.js network api you can set the state in a parent component using this property
-                            }}
-                        />
-                    </div>
 
+            <Row>
+                <Col md="6">
+                    <Card>
+                        <Card.Header>
+                            <Card.Title as="h4">Social Graph</Card.Title>
+                            <p className="card-category">Zoom in or Zoom out</p>
+                        </Card.Header>
+                        <Card.Body>
+                            <div style={{border:'1px solid lightGray'}} className="ct-chart" id="chartHours">
+                                <div style={{height:"600px", width: '700px'}}>
+
+                                    <Graph
+                                        graph={graph}
+                                        options={options}
+                                        events={events}
+                                        getNetwork={network => {
+                                            //  if you want access to vis.js network api you can set the state in a parent component using this property
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        </Card.Body>
+                    </Card>
                 </Col>
-                <Col xs={6}>
-                    <div style={{height:"800px", width: '800px'}}>
+                <Col md="6">
+                    <Card>
+                        <Card.Header>
+                            <Card.Title as="h4">Social graph</Card.Title>
+                            <p className="card-category">Zoom in or Zoom out</p>
 
-                        <Graph
-                            graph={graph}
-                            options={options}
-                            events={events}
-                            getNetwork={network => {
-                                //  if you want access to vis.js network api you can set the state in a parent component using this property
-                            }}
-                        />
-                    </div>
+                        </Card.Header>
+                        <Card.Body>
+                            <div style={{border:'1px solid lightGray'}}
+                                className="ct-chart height-util ct-perfect-fourth"
+                                id="chartPreferences"
+                            >
+                                <div style={{height:"600px", width: '700px'}}>
 
+                                    <Graph
+                                        graph={graph}
+                                        options={options}
+                                        events={events}
+                                        getNetwork={network => {
+                                            //  if you want access to vis.js network api you can set the state in a parent component using this property
+                                        }}
+                                    />
+                                </div>
+                            </div>
+
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
+
 
 
         </Container>)

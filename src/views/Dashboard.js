@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-import ChartistGraph from "react-chartist";
-import Graph from "react-graph-vis";
 import '../assets/css/dashboard.css'
 import CanvasJSReact from '../assets/canvasJs/canvasjs.react';
 
@@ -16,7 +14,6 @@ import {
   Col,
   Form,
   OverlayTrigger,
-  Tooltip,
 } from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -29,121 +26,105 @@ function Dashboard({history}) {
   const emailOptions = {
     theme: "light2",
     animationEnabled: true,
-    title:{
-      text: "Emails sent vs received from outside company"
-    },
-    axisX: {
-      title: "States"
-    },
     axisY: {
-      title: "Emails Sent",
-      titleFontColor: "#6D78AD",
-      lineColor: "#6D78AD",
-      labelFontColor: "#6D78AD",
-      tickColor: "#6D78AD"
-    },
-    axisY2: {
-      title: "Emails received",
-      titleFontColor: "#51CDA0",
-      lineColor: "#51CDA0",
-      labelFontColor: "#51CDA0",
-      tickColor: "#51CDA0"
+      title: "Emails"
     },
     toolTip: {
       shared: true
     },
     legend: {
+      verticalAlign: "center",
+      horizontalAlign: "right",
+      reversed: true,
       cursor: "pointer",
     },
     data: [{
       type: "spline",
-      name: "Emails from outside",
+      name: "Received",
       showInLegend: true,
-      xValueFormatString: "MMM",
-      yValueFormatString: "#,##0 Emails",
       dataPoints: [
-        { x: new Date(2017, 0), y: 120 },
-        { x: new Date(2017, 1), y: 135 },
-        { x: new Date(2017, 2 ), y: 144 },
-        { x: new Date(2017, 3 ), y: 103 },
-        { x: new Date(2017, 4 ), y: 93 },
-        { x: new Date(2017, 5 ), y: 129 },
-        { x: new Date(2017, 6 ), y: 143 },
-        { x: new Date(2017, 7 ), y: 156 },
-        { x: new Date(2017, 8 ), y: 122 },
-        { x: new Date(2017, 9 ), y: 106 },
-        { x: new Date(2017, 10 ), y: 137 },
-        { x: new Date(2017, 11), y: 142 }
+        { y: 155, label: "Jan" },
+        { y: 150, label: "Feb" },
+        { y: 152, label: "Mar" },
+        { y: 148, label: "Apr" },
+        { y: 142, label: "May" },
+        { y: 150, label: "Jun" },
+        { y: 146, label: "Jul" },
+        { y: 149, label: "Aug" },
+        { y: 153, label: "Sept" },
+        { y: 158, label: "Oct" },
+        { y: 154, label: "Nov" },
+        { y: 150, label: "Dec" }
       ]
     },
       {
         type: "spline",
-        name: "Emails from inside",
-        axisYType: "primary",
+        name: "Sent",
         showInLegend: true,
-        xValueFormatString: "MMM",
-        yValueFormatString: "#,##0 Emails",
         dataPoints: [
-          { x: new Date(2017, 0), y: 190 },
-          { x: new Date(2017, 1  ), y: 200 },
-          { x: new Date(2017, 2 ), y: 273 },
-          { x: new Date(2017, 3 ), y: 200 },
-          { x: new Date(2017, 4 ), y: 202 },
-          { x: new Date(2017, 5 ), y: 290 },
-          { x: new Date(2017, 6 ), y: 304 },
-          { x: new Date(2017, 7 ), y: 325 },
-          { x: new Date(2017, 8 ), y: 202 },
-          { x: new Date(2017, 9 ), y: 272 },
-          { x: new Date(2017, 10 ), y: 335 },
-          { x: new Date(2017, 11), y: 325 }
+          { y: 172, label: "Jan" },
+          { y: 173, label: "Feb" },
+          { y: 175, label: "Mar" },
+          { y: 172, label: "Apr" },
+          { y: 162, label: "May" },
+          { y: 165, label: "Jun" },
+          { y: 172, label: "Jul" },
+          { y: 168, label: "Aug" },
+          { y: 175, label: "Sept" },
+          { y: 170, label: "Oct" },
+          { y: 165, label: "Nov" },
+          { y: 169, label: "Dec" }
         ]
       }]
   }
 
 
   const departmentOptions = {
+    theme: "light2",
     animationEnabled: true,
-    theme: "ligh1",
-    title: {
-      text: "Threats Statistics Month Wise"
-    },
     axisY: {
-      title: "Threats per department",
-      scaleBreaks: {
-        autoCalculate: true,
-        type: "wavy",
-        lineColor: "white"
-      }
+      title: "No. of Threats"
     },
+    toolTip: {
+      shared: true
+    },
+    legend: {
+      verticalAlign: "center",
+      horizontalAlign: "right",
+      reversed: true,
+      cursor: "pointer",
+    },
+
     data: [{
-      type: "column",
-      indexLabel: "{y}",
-      indexLabelFontColor: "white",
+      type: "scatter",
+      color: 'red',
+      markerSize: 20,
+      name: "Threats",
+      // showInLegend: true,
       dataPoints: [
-        {"label":"Marketing","y":5},
-        {"label":"Accounts","y":4},
-        {"label":"Pharma","y":2},
-        {"label":"IT","y":3},
-        {"label":"Design","y":2},
-        {"label":"Support","y":2}
+        { y: 5, label: "IT" },
+        { y: 10, label: "Marketing" },
+        { y: 12, label: "Design" },
+        { y: 18, label: "Sales" },
+        { y: 12, label: "Accounts" },
       ]
-    }]
+    },
+      ]
   }
+
 
   const pieOptions = {
     animationEnabled: true,
-    exportEnabled: true,
     theme: "light1", // "light1", "dark1", "dark2"
-    title:{
-      text: "Company Health"
-    },
+    colorSet:"colorSet1",
     data: [{
       type: "pie",
+
       indexLabel: "{label}: {y}%",
       startAngle: -90,
       dataPoints: [
-        { y: 30, label: "Suspicious Employees" },
-        { y: 70, label: "Normal Employees" },
+        { y: 70 },
+        { y: 30},
       ]
     }]
   }
@@ -152,24 +133,13 @@ function Dashboard({history}) {
   useEffect(()=>{
   },[dispatch])
 
+
+
   const showDashboad=()=>{
 
 
 
-    let options = {
-      nodes: {
-        shape: "dot",
-        size: 30,
-        font: {
-          size: 20,
-          color: "black",
-        },
-        borderWidth: 2,
-      },
-      edges: {
-        width: 2,
-      },
-    };
+
 
     const events = {
       select: function(event) {
@@ -179,19 +149,19 @@ function Dashboard({history}) {
 
         return( <Container fluid>
         <Row>
-          <Col lg="4" sm="6">
+          <Col lg="3" sm="6">
             <Card className="card-stats card-stats-bg-1">
               <Card.Body>
                 <Row>
                   <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className=" text-white-util nc-icon nc-single-02 "></i>
+                      <i className=" text-primary nc-icon nc-single-02 "></i>
                     </div>
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <p className="card-category text-white-util">Total Employees</p>
-                      <Card.Title className="text-white-util" as="h4">284</Card.Title>
+                      <p className="card-category">Total Employees</p>
+                      <Card.Title className="" as="h4">284</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -199,19 +169,19 @@ function Dashboard({history}) {
 
             </Card>
           </Col>
-          <Col lg="4" sm="6">
+          <Col lg="3" sm="6">
             <Card className="card-stats card-stats-bg-2">
               <Card.Body>
                 <Row>
                   <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-email-85 text-white-util"></i>
+                      <i className="nc-icon nc-email-85 text-success"></i>
                     </div>
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <p className=" text-white-util card-category">Total Emails</p>
-                      <Card.Title className="text-white-util" as="h4">3600</Card.Title>
+                      <p className=" card-category">Total Emails</p>
+                      <Card.Title  as="h4">3600</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -219,13 +189,13 @@ function Dashboard({history}) {
 
             </Card>
           </Col>
-          <Col lg="4" sm="6">
+          <Col lg="3" sm="6">
             <Card className="card-stats card-stats-bg-3">
               <Card.Body>
                 <Row>
                   <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-bell-55 text-white-util"></i>
+                      <i className="nc-icon nc-bell-55 text-danger"></i>
                     </div>
                   </Col>
                   <Col xs="7">
@@ -239,23 +209,85 @@ function Dashboard({history}) {
 
             </Card>
           </Col>
+
+          <Col lg="3" sm="6">
+            <Card className="card-stats card-stats-bg-3">
+              <Card.Body>
+                <Row>
+                  <Col xs="5">
+                    <div className="icon-big text-center icon-warning">
+                      <i className="nc-icon nc-alien-33 text-warning"></i>
+                    </div>
+                  </Col>
+                  <Col xs="7">
+                    <div className="numbers">
+                      <p className=" text-white-util card-category">Burnout percentage</p>
+                      <Card.Title className="text-white-util" as="h4">20%</Card.Title>
+                    </div>
+                  </Col>
+                </Row>
+              </Card.Body>
+
+            </Card>
+          </Col>
         </Row>
-          <Row className="graphs-container">
-              <Col xs={6}>
-                <CanvasJSChart options = {pieOptions}/>
-              </Col>
-              <Col xs={6}>
-                <CanvasJSChart options = {departmentOptions}
-                    /* onRef={ref => this.chart = ref} */
-                />
 
-              </Col>
 
-            <Col xs={12}>
-              <CanvasJSChart options = {emailOptions}
-                  /* onRef={ref => this.chart = ref} */
-              />
+          <Row>
+            <Col md="8">
+              <Card>
+                <Card.Header>
+                  <Card.Title as="h4">Threats in department</Card.Title>
+                  <p className="card-category">Monthly Stats</p>
+                </Card.Header>
+                <Card.Body>
+                  <div className="ct-chart height-util" id="chartHours">
+                    <CanvasJSChart options = {departmentOptions}/>
 
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md="4">
+              <Card>
+                <Card.Header>
+                  <Card.Title as="h4">Company Health</Card.Title>
+                </Card.Header>
+                <Card.Body>
+                  <div
+                      className="ct-chart height-util ct-perfect-fourth"
+                      id="chartPreferences"
+                  >
+                    <CanvasJSChart options = {pieOptions}/>
+                  </div>
+                  <div className="legend">
+                    <i className="fas fa-circle text-danger"></i>
+                    Suspicious Employees
+                    <i className="fas fa-circle text-info"></i>
+                    Normal Employees
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col md="12">
+              <Card>
+                <Card.Header>
+                  <Card.Title as="h4">Email Sent and Received </Card.Title>
+                  <p className="card-category">Monthly Stats</p>
+                </Card.Header>
+                <Card.Body>
+                  <div
+                      className="ct-chart ct-perfect-fourth"
+                      id="chartPreferences"
+                  >
+                    <CanvasJSChart options = {emailOptions}/>
+                  </div>
+                  <hr></hr>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
 

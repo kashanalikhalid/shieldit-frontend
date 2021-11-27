@@ -103,9 +103,6 @@ function Analaytics({history}) {
 
     const departmentOptions = {
             animationEnabled: true,
-            title: {
-                text: "Emails Sent to various departments"
-            },
             subtitles: [{
                 text: "Kashan Ali Khalid",
                 verticalAlign: "center",
@@ -129,15 +126,14 @@ function Analaytics({history}) {
 
     const pieOptions = {
         animationEnabled: true,
-        exportEnabled: true,
         theme: "light1", // "light1", "dark1", "dark2"
-        title:{
-            text: "Emails Sent vs Received"
-        },
         data: [{
+            showInLegend: true,
+            legendText: "{label}",
+            toolTipContent: "{label}: <strong>{y}%</strong>",
+            indexLabelPlacement: "inside",
             type: "pie",
             indexLabel: "{label}: {y}%",
-            startAngle: -90,
             dataPoints: [
                 { y: 10, label: "Sent" },
                 { y: 90, label: "Received" },
@@ -152,22 +148,61 @@ function Analaytics({history}) {
     const showDashboad=()=>{
 
         return( <Container fluid>
-            <Row className="graphs-container">
-                <Col xs={6}>
-                    <CanvasJSChart options = {pieOptions}/>
+            <Row>
+                <Col md="8">
+                    <Card>
+                        <Card.Header>
+                            <Card.Title as="h4">Emails sent to various departments</Card.Title>
+                            <p className="card-category">Monthly Stats</p>
+                        </Card.Header>
+                        <Card.Body>
+                            <div className="ct-chart" id="chartHours">
+                                <CanvasJSChart options = {departmentOptions}/>
+
+                            </div>
+                        </Card.Body>
+                    </Card>
                 </Col>
-                <Col xs={6}>
-                    <CanvasJSChart options = {departmentOptions}
-                        /* onRef={ref => this.chart = ref} */
-                    />
-
+                <Col md="4">
+                    <Card>
+                        <Card.Header>
+                            <Card.Title as="h4">Emails sent vs received</Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                            <div
+                                className="ct-chart height-util ct-perfect-fourth"
+                                id="chartPreferences"
+                            >
+                                <CanvasJSChart options = {pieOptions}/>
+                            </div>
+                            {/*<div className="legend">*/}
+                            {/*    <i className="fas fa-circle text-info"></i>*/}
+                            {/*    Normal Employees <i className="fas fa-circle text-danger"></i>*/}
+                            {/*    Suspicious Employees*/}
+                            {/*</div>*/}
+                            <hr></hr>
+                        </Card.Body>
+                    </Card>
                 </Col>
+            </Row>
 
-                <Col xs={12}>
-                    <CanvasJSChart options = {emailOptions}
-                        /* onRef={ref => this.chart = ref} */
-                    />
-
+            <Row>
+                <Col md="12">
+                    <Card>
+                        <Card.Header>
+                            <Card.Title as="h4">Email Sent to outsiders </Card.Title>
+                            <p className="card-category">Monthly Stats</p>
+                        </Card.Header>
+                        <Card.Body>
+                            <div
+                                className="ct-chart ct-perfect-fourth"
+                                id="chartPreferences"
+                            >
+                                <CanvasJSChart options = {emailOptions}/>
+                            </div>
+                            <hr></hr>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
 
