@@ -252,3 +252,13 @@ position:absolute;
     width:290px;
 
 }
+
+@media only screen and (max-width: 600px) {
+    .login-logo
+    {
+        text-align: center !important;
+        margin-left: 17% !important;
+        width:290px;
+
+    }
+}

@@ -141,7 +141,7 @@ const Login = ({history}) => {
 
                         </Form>
                     </Container>
-                    <div className="mt-auto mb-5 pb-1 ml-5">
+                    <div className="mt-auto mb-5 pb-1 ml-2 ml-md-5">
                         <Row  className=" no-gutters d-flex flex-row justify-content-start align-items-start">
                             <Col  xs={1}>
                                 <SocialIcon bgColor="#6001d2" className="login-social" url="https://yahoo.com/" />
